@@ -93,7 +93,7 @@ To encrypt your columns in your parquet file, on write you need to provide a cou
 Our write command in spark will look something like this:
 
 ```python
-utput_storage_account_name = "your storage account name"
+output_storage_account_name = "your storage account name"
 output_storage_container_name = "your storage container names"
 
 df.write.mode("overwrite").option("parquet.encryption.footer.key","<key name>/<key version>").option("parquet.encryption.column.keys","<key name>/<key version>:CustomerID").format("parquet").save("abfss://{0}@{1}.dfs.core.windows.net/encryptionDemo".format(output_storage_container_name,output_storage_account_name))
